@@ -1,0 +1,21 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #E8D0B3;
+    background-image: url(../assets/img/black-soft-dots.png);
+    background-repeat: repeat;
+}
+ #grid-table{
+    width: 90%;
+    height: 85vh;
+    background-image: url(../assets/img/corcho.jpg);
+    border: dashed 4px #86340A;
+    filter: drop-shadow(10px 10px 20px black) grayscale(10%);
+    border-radius: 2%;
+    margin-left: 5%;
+    margin-top: 3%;
+ }
