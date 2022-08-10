@@ -1,3 +1,4 @@
+/*
 let nombre = prompt("Bienvenid@! por favor especifica tu nombre.");
 let apellido = prompt("Ahora tu apellido..");
 
@@ -31,5 +32,50 @@ if (promedio<=2){
 }else{
     alert("Tu promedio de horas es "+ promedio +"hs, es alrededor de un "+ porcentajeMayor +"% más de lo que sería saludable (2 horas diarias).")
 }
+*/
+class Nota {
+    constructor(fecha, hora, texto) {
+        this.fecha = fecha;
+        this.hora = hora;
+        this.texto = texto;
+    }
+}
 
 
+let nota1 = new Nota("09/08/22", 12, "Dia en la playa");
+let nota2 = new Nota("10/07/21", 15, "Dia en la montaña");
+let nota3 = new Nota("11/04/20", 16, "Visita al museo");
+let nota4 = new Nota("12/03/22", 22, "Cena con amigos");
+let nota5 = new Nota("13/12/18", 9, "Junta de trabajo");
+
+const Notas = [];
+
+Notas.push(nota1, nota2, nota3, nota4, nota5);
+
+
+function agregarNota() {
+    let fechaNotaNueva = prompt("Ingresar fecha de la nota a añadir en formato 'dd/mm/aa' :");
+    let horaNotaNueva = parseInt(prompt("Ingresar hora (Formato 24hs):"));
+    let textoNotaNueva = prompt("Ingresar texto:");
+
+    let notaNueva = new Nota(fechaNotaNueva, horaNotaNueva, textoNotaNueva);
+
+    Notas.unshift(notaNueva);
+}
+alert("Esta es tu lista de notas ->");
+
+console.log(Notas);
+
+alert("Agreguemos otra nota mas!");
+
+for (let i = 4; i < 5; i++) {
+    agregarNota();
+}
+
+console.table(Notas);
+
+
+
+// for (let i=0; i < Notas.length; i++) {
+//     console.log(Notas[i]);
+// }
