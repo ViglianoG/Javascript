@@ -12,7 +12,7 @@ body {
 
 #grid-table {
   width: 90%;
-  height: 85vh;
+  height: 120vh;
   background-image: url(../assets/img/corcho.jpg);
   border: dashed 4px #86340A;
   filter: drop-shadow(10px 10px 20px black) grayscale(10%);
