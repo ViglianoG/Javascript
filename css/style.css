@@ -12,7 +12,18 @@ body {
 
 #grid-table {
   width: 90%;
-  height: 120vh;
+  height: 110vh;
+  background-image: url(../assets/img/corcho.jpg);
+  border: dashed 4px #86340A;
+  filter: drop-shadow(10px 10px 20px black) grayscale(10%);
+  border-radius: 2%;
+  margin-left: 5%;
+  margin-top: 3%;
+}
+
+#grid-table2 {
+  width: 90%;
+  height: 80%;
   background-image: url(../assets/img/corcho.jpg);
   border: dashed 4px #86340A;
   filter: drop-shadow(10px 10px 20px black) grayscale(10%);
