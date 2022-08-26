@@ -12,7 +12,7 @@ body {
 
 #grid-table {
   width: 90%;
-  height: 110vh;
+  height: 90vh;
   background-image: url(../assets/img/corcho.jpg);
   border: dashed 4px #86340A;
   filter: drop-shadow(10px 10px 20px black) grayscale(10%);
@@ -30,4 +30,136 @@ body {
   border-radius: 2%;
   margin-left: 5%;
   margin-top: 3%;
+}
+
+.imgNota {
+  position: absolute;
+  z-index: -1;
+}
+
+.textoNota {
+  height: 19rem;
+  width: 18rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transform: rotate(-17deg);
+}
+.textoNota h5 {
+  font-family: "Alumni Sans Pinstripe", sans-serif;
+}
+.textoNota h6 {
+  font-family: "Rubik Maze", cursive;
+}
+.textoNota p {
+  font-family: "Handlee", cursive;
+}
+
+.cuerpoToDo {
+  margin: 0;
+  max-width: 400px;
+  height: auto;
+  background-image: url(../assets/img/corcho-nav.jpg);
+}
+
+*:first-letter {
+  text-transform: capitalize;
+}
+
+.bordeRedondeado {
+  border-radius: 5px;
+}
+
+.listaTareas {
+  margin: 25px auto;
+  padding: 25px;
+  background-color: white;
+  width: 100%;
+  max-width: 400px;
+}
+
+.fecha {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.fechaParteIzquierda {
+  display: flex;
+  align-items: center;
+}
+
+#fechaNumero {
+  font-size: 50px;
+}
+
+#nombreDia {
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+#fechaMes,
+#fechaNumero,
+#nombreDia {
+  font-weight: bold;
+  color: white;
+}
+
+#fechaMes,
+#fechaAnio {
+  margin-left: 7px;
+  font-size: 20px;
+  color: white;
+}
+
+form {
+  margin: 20px 0;
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: auto 35px auto;
+  grid-column-gap: 15px;
+}
+
+input {
+  border: none;
+  padding-left: 10px;
+  background-color: lightgray;
+}
+
+input:focus {
+  outline: none;
+}
+
+.botonAgregarTarea,
+.botonOrdenar {
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.botonAgregarTarea {
+  height: 35px;
+  border-radius: 30%;
+  font-size: 18px;
+  background-color: lightgray;
+}
+
+.botonOrdenar {
+  background-color: green;
+  color: white;
+}
+
+.task {
+  background-color: red;
+  padding: 15px;
+  margin-top: 15px;
+  color: white;
+  cursor: pointer;
+}
+
+.done {
+  background-color: gray;
+  text-decoration: line-through;
+  color: white;
 }/*# sourceMappingURL=style.css.map */
