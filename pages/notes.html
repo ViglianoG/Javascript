@@ -19,15 +19,17 @@
 
 <body>
     <!-- ######################## MODAL #################### -->
-    <!-- <div class="contenedor-modal">
+    <div class="contenedor-modal">
         <div class="modal1 modal-cierre">
-            <img src="../assets/img/postit-modal.png" alt="postitmodal">
-            <p class="cerrar">X</p>
-            <div class="modal-titulo">
+            <div>
+                <p class="cerrar">X</p>
                 <h2>Escribe tu nota</h2>
+                <textarea class="area-texto" id="input-texto-modal" type="text"></textarea>
+                <img src="../assets/img/postit-modal.png" alt="postitmodal">
+                <button id="botonAgregarNota" type="button" class="btn btn-info">Añadir nota</button>
             </div>
         </div>
-    </div> -->
+    </div>
 
     <div id="grid-table2">
 
@@ -121,7 +123,7 @@
                 <!-- ######################## Agregar notas #################### -->
                 <div class="d-flex flex-row-reverse mt-1">
                     <div class="col-sm-2 col-md-2 col-xl-2">
-                        <button id="botonAgregarNota" type="button" class="btn btn-info">Añadir nota</button>
+                        <button id="botonAgregarNota-modal" type="button" class="btn btn-info">Añadir nota</button>
                     </div>
                 </div>
 

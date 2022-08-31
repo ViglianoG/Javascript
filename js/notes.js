@@ -37,10 +37,13 @@ function conseguirHora() {
     let hora = nuevaHora.getHours();
     return (hora)
 }
+
 //funcion para agregar nuevas notas
 function nuevaNota() {
+    let inputTexto = document.getElementById("input-texto-modal").value;
+    
     let idNuevo = (NotasNuevas.length + 1);
-    let textoNotaNueva = prompt("Ingresar texto:");
+    let textoNotaNueva = inputTexto;
     let fechaNotaNueva = conseguirFecha();
     let horaNotaNueva = parseInt(conseguirHora());
 
@@ -135,4 +138,30 @@ dibujarNotasNuevas();
 
 
 let botonAgregarNota = document.getElementById("botonAgregarNota");
-botonAgregarNota.addEventListener("click", nuevaNota);
+botonAgregarNota.addEventListener("click", () => {
+    nuevaNota();
+    modal.classList.toggle("modal-cierre");
+    modalContenedor.style.opacity = "0";
+    modalContenedor.style.visibility = "hidden";
+});
+
+
+//modal
+
+let cerrar = document.querySelectorAll(".cerrar")[0];
+let abrir = document.getElementById("botonAgregarNota-modal");
+let modal = document.querySelectorAll(".modal1")[0];
+let modalContenedor = document.querySelectorAll(".contenedor-modal")[0];
+
+abrir.addEventListener("click", (e) => {
+    e.preventDefault();
+    modalContenedor.style.opacity = "1";
+    modalContenedor.style.visibility = "visible";
+    modal.classList.toggle("modal-cierre");
+});
+
+cerrar.addEventListener("click", (e) => {
+    modal.classList.toggle("modal-cierre");
+    modalContenedor.style.opacity = "0";
+    modalContenedor.style.visibility = "hidden";
+});
