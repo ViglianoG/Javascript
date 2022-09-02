@@ -41,7 +41,7 @@ function conseguirHora() {
 //funcion para agregar nuevas notas
 function nuevaNota() {
     let inputTexto = document.getElementById("input-texto-modal").value;
-    
+
     let idNuevo = (NotasNuevas.length + 1);
     let textoNotaNueva = inputTexto;
     let fechaNotaNueva = conseguirFecha();
@@ -139,6 +139,19 @@ dibujarNotasNuevas();
 
 let botonAgregarNota = document.getElementById("botonAgregarNota");
 botonAgregarNota.addEventListener("click", () => {
+
+    Toastify({
+        text: "Añadiste una nota!",
+        duration: 3000,
+        gravity: "bottom",
+        position: "left",
+        stopOnFocus: true,
+        style: {
+            background: "linear-gradient(to left, #FDC517, #5C4F26)",
+        },
+        // onClick:
+    }).showToast();
+
     nuevaNota();
     modal.classList.toggle("modal-cierre");
     modalContenedor.style.opacity = "0";
