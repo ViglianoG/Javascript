@@ -1,104 +1,104 @@
-// let nombre = prompt("Bienvenid@! por favor especifica tu nombre.");
-// let apellido = prompt("Ahora tu apellido..");
+// const nombreUser = JSON.parse(localStorage.getItem("nombreUsuario")) || [];
+// class User {
+//     constructor(nombre, apellido) {
+//         this.nombre = nombre;
+//         this.apellido = apellido;
+//     }
+// }
+// // console.log(nombreUser)
 
+// function conseguirUser() {
+//     let nombre = prompt("Bienvenid@! por favor especifica tu nombre.");
+//     let apellido = prompt("Ahora tu apellido..");
+//     nombreUser.push(new User(nombre, apellido));
+// }
+// if (nombreUser == []){
+//     conseguirUser();
+// }
+
+// if (nombreUser == []) {
+//     conseguirUser();
+// } else {
+//     const usuarioExistente = JSON.stringify(nombreUser)
+//     localStorage.setItem("nombreUsuario", usuarioExistente);
+// }
+
+
+
+// let nombreStorage = usuarioExistente[0].nombre;
+// let apellidoStorage = usuarioExistente[0].apellido;
+let contenedorNombre = document.getElementById("contenedor-nombre");
+
+// ((nombreStorage != "") && (apellidoStorage != "") || (nombreStorage != "null") || (apellidoStorage != "null")) ?
+contenedorNombre.innerHTML = `<h3>Bienvenid@! el clima de hoy es:</h3>`//: alert("Necesitamos saber tu nombre completo para continuar");
 // function bienvenido() {
-//         if ((nombre != "") && (apellido != "")) {
-//             alert("Bienvenido " + nombre + " " + apellido + " ya podemos comenzar!");
-//         } else {
-//             alert("Necesitamos saber tu nombre completo para continuar");
-//         }
 // }
 
 // bienvenido();
 
-// variables para fecha
-const fechaNumero = document.getElementById('fechaNumero');
-const nombreDia = document.getElementById('nombreDia');
-const fechaMes = document.getElementById('fechaMes');
-const fechaAnio = document.getElementById('fechaAnio');
 
-// contenedor de tareas
-const contenedorTareas = document.getElementById('contenedorTareas');
 
-// funcion para ordenar las fechas
-const conseguirFecha = () => {
-    const date = new Date();
-    fechaNumero.textContent = date.toLocaleString('es', {
-        day: 'numeric'
-    });
-    nombreDia.textContent = date.toLocaleString('es', {
-        weekday: 'long'
-    });
-    fechaMes.textContent = date.toLocaleString('es', {
-        month: 'short'
-    });
-    fechaAnio.textContent = date.toLocaleString('es', {
-        year: 'numeric'
-    });
-};
+//geolocalización para el clima
 
-//funcion para agregar nuevas tareas
-const agregarNuevaTarea = event => {
-    event.preventDefault();
-    const {
-        value
-    } = event.target.taskText;
-    if (!value) return;
-    const task = document.createElement('div');
-    task.classList.add('task', 'bordeRedondeado');
-    task.addEventListener('click', cambiarEstadoTarea)
-    task.textContent = value;
-    contenedorTareas.prepend(task);
-    Toastify({
-        text: "Añadiste una nueva tarea!",
-        duration: 2000,
-        gravity: "bottom",
-        position: "center",
-        stopOnFocus: true,
-        style: {
-            background: "linear-gradient(to right, #FDC517, #5C4F26)",
-        },
-    }).showToast();
-    event.target.reset();
-};
+let tempValor = document.getElementById("temp-valor");
+let tempDescripcion = document.getElementById("temp-descripcion");
 
-// cambiar estado a completado
-const cambiarEstadoTarea = event => {
-    event.target.classList.toggle('done');
-    Toastify({
-        text: "Completaste una tarea!",
-        duration: 1000,
-        gravity: "bottom",
-        position: "center",
-        stopOnFocus: true,
-        style: {
-            background: "linear-gradient(to left, #FF1D1D,#000000,#000000, #0000)",
-        },
-    }).showToast();
-};
+let ciudad = document.getElementById("ubicacion");
+let iconoAnimado = document.getElementById("icono-animado");
 
-// ordenar
-const done = [];
-const toDo = []; 
-const ordenar = () => {
-    contenedorTareas.childNodes.forEach(el => {
-        el.classList.contains('done') ? done.push(el) : toDo.push(el)
-    })
-    return [...toDo, ...done];
-}
+window.addEventListener("load", () => {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(posi => {
+            let latitud = posi.coords.latitude;
+            let longitud = posi.coords.longitude;
+            let apiKey = "da53dcac9ee0f4524e9d2c482ab89e63";
+            //API UrlWeather
+            const urlWeather = `https://api.openweathermap.org/data/2.5/weather?lat=${latitud}&lon=${longitud}&appid=${apiKey}&units=metric&lang=es`;
+            fetch(urlWeather)
+                .then(resultado => resultado.json())
+                .then(datos => {
+                    let temp = Math.round(datos.main.temp);
+                    tempValor.innerText = `${temp} °C`;
+                    let desc = datos.weather[0].description;
+                    tempDescripcion.innerText = `${desc.toUpperCase()}`;
+                    let ubi = datos.name;
+                    ciudad.innerText = `${ubi}`;
 
-const ordenarTareasCompletadas = () => {
-    ordenar().forEach(el => contenedorTareas.appendChild(el))
-    Toastify({
-        text: "Te quedan: " + toDo.length + " " +"tareas por completar...",
-        duration: 5000,
-        gravity: "bottom",
-        position: "center",
-        stopOnFocus: true,
-        style: {
-            background: "linear-gradient(to right, #00b09b,#00b09b,#96c93d,#96c93d, #0000)",
-        },
-    }).showToast();
-}
+                    switch (datos.weather[0].main) {
+                        case 'Thunderstorm':
+                            iconoAnimado.src = './assets/img/animated/thunder.svg'
+                            break;
+                        case 'Drizzle':
+                            iconoAnimado.src = './assets/img/animated/rainy-2.svg'
+                            break;
+                        case 'Rain':
+                            iconoAnimado.src = './assets/img/animated/rainy-7.svg'
+                            break;
+                        case 'Snow':
+                            iconoAnimado.src = './assets/img/animated/snowy-6.svg'
+                            break;
+                        case 'Clear':
+                            iconoAnimado.src = './assets/img/animated/day.svg'
+                            break;
+                        case 'Atmosphere':
+                            iconoAnimado.src = './assets/img/animated/weather.svg'
+                            break;
+                        case 'Clouds':
+                            iconoAnimado.src = './assets/img/animated/cloudy-day-1.svg'
+                            break;
+                        default:
+                            iconoAnimado.src = './assets/img/animated/cloudy-day-1.svg'
+                    }
+                })
+                .catch(error => {
+                    console.log(error)
+                })
+        })
+    }
+})
 
-conseguirFecha();
+
+
+// function obtenerDatos(){
+//     const UrlGet="";
+// }
