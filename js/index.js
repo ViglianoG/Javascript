@@ -1,40 +1,38 @@
-// const nombreUser = JSON.parse(localStorage.getItem("nombreUsuario")) || [];
-// class User {
-//     constructor(nombre, apellido) {
-//         this.nombre = nombre;
-//         this.apellido = apellido;
-//     }
-// }
-// // console.log(nombreUser)
+document.getElementById("botonNombre").addEventListener("click", () => {
+    let nombre = prompt("tu nombre");
+    let apellido = prompt("y tu apellido");
 
-// function conseguirUser() {
-//     let nombre = prompt("Bienvenid@! por favor especifica tu nombre.");
-//     let apellido = prompt("Ahora tu apellido..");
-//     nombreUser.push(new User(nombre, apellido));
-// }
-// if (nombreUser == []){
-//     conseguirUser();
-// }
+    const nombreCompleto = {
+        nombre,
+        apellido
+    };
 
-// if (nombreUser == []) {
-//     conseguirUser();
-// } else {
-//     const usuarioExistente = JSON.stringify(nombreUser)
-//     localStorage.setItem("nombreUsuario", usuarioExistente);
-// }
+    if (localStorage.getItem("nombreYapellido") === null) {
+        let aNombre = [];
+        aNombre.push(nombreCompleto)
+        localStorage.setItem("nombreYapellido", JSON.stringify(aNombre));
+    } else {
+        let aNombre = JSON.parse(localStorage.getItem("nombreYapellido"));
+        aNombre.push(nombreCompleto);
+        localStorage.setItem("nombreYapellido", JSON.stringify(aNombre));
+    }
+
+});
 
 
+function mensajeBienvenida() {
+    let nombreCompleto = JSON.parse(localStorage.getItem("nombreYapellido"));
+    let contenedorNombre = document.getElementById("contenedor-nombre");
+    if (localStorage.getItem("nombreYapellido") === null){
+        document.getElementById("botonNombre").classList.remove("disabled");
+        contenedorNombre.innerHTML = `<h3>Bienvenid@! el clima de hoy es:</h3>`
+    }else{
+        contenedorNombre.innerHTML = `<h3>Bienvenid@! ${nombreCompleto[0].nombre} ${nombreCompleto[0].apellido} el clima de hoy es:</h3>`
+    }
+    
+}
+mensajeBienvenida();
 
-// let nombreStorage = usuarioExistente[0].nombre;
-// let apellidoStorage = usuarioExistente[0].apellido;
-let contenedorNombre = document.getElementById("contenedor-nombre");
-
-// ((nombreStorage != "") && (apellidoStorage != "") || (nombreStorage != "null") || (apellidoStorage != "null")) ?
-contenedorNombre.innerHTML = `<h3>Bienvenid@! el clima de hoy es:</h3>`//: alert("Necesitamos saber tu nombre completo para continuar");
-// function bienvenido() {
-// }
-
-// bienvenido();
 
 
 

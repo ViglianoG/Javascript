@@ -25,18 +25,18 @@
 }
 
 #caja1, #caja2 {
+  background-image: url(../assets/img/corcho-nav.jpg);
+  color: white;
   display: inline-block;
   text-align: center;
   vertical-align: middle;
-  padding: 3%;
+  padding: 2%;
   width: 150px;
   height: 150px;
   border-radius: 15%;
 }
 
 #caja1 {
-  background: linear-gradient(to bottom, #c6ffdd, #fbd786, #f7797d);
-  color: black;
   font-family: "Handlee", cursive;
 }
 #caja1 #temp-descripcion {
@@ -45,8 +45,6 @@
 }
 
 #caja2 {
-  background: linear-gradient(to top, #c6ffdd, #fbd786, #f7797d);
-  color: black;
   font-family: "Handlee", cursive;
 }
 #caja2 img {
