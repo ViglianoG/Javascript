@@ -40,9 +40,12 @@ mensajeBienvenida();
 
 let tempValor = document.getElementById("temp-valor");
 let tempDescripcion = document.getElementById("temp-descripcion");
+let humedad = document.getElementById("humedad");
 
 let ciudad = document.getElementById("ubicacion");
 let iconoAnimado = document.getElementById("icono-animado");
+
+let velViento = document.getElementById("vel-viento");
 
 window.addEventListener("load", () => {
     if (navigator.geolocation) {
@@ -61,6 +64,10 @@ window.addEventListener("load", () => {
                     tempDescripcion.innerText = `${desc.toUpperCase()}`;
                     let ubi = datos.name;
                     ciudad.innerText = `${ubi}`;
+                    let vel= Math.round(datos.wind.speed * 3.6);
+                    velViento.innerHTML = `${vel} km/h`
+                    let hum = datos.main.humidity;
+                    humedad.innerHTML= `Humedad: ${hum}%`
 
                     switch (datos.weather[0].main) {
                         case 'Thunderstorm':

@@ -19,36 +19,51 @@
 #contenedor {
   text-align: center;
   display: flex;
-  width: 50%;
+  width: 90%;
   justify-content: space-evenly;
   justify-items: center;
 }
 
-#caja1, #caja2 {
+#caja1,
+#caja2,
+#caja3 {
   background-image: url(../assets/img/corcho-nav.jpg);
   color: white;
-  display: inline-block;
-  text-align: center;
-  vertical-align: middle;
-  padding: 2%;
-  width: 150px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px;
+  width: 130px;
   height: 150px;
   border-radius: 15%;
+  border: dashed 1px white;
+  filter: drop-shadow(-10px 10px 10px black) grayscale(10%);
 }
 
-#caja1 {
-  font-family: "Handlee", cursive;
-}
 #caja1 #temp-descripcion {
   font-family: "Alumni Sans Pinstripe", sans-serif;
   font-weight: bold;
+}
+#caja1 p {
+  font-size: 20px;
 }
 
 #caja2 {
   font-family: "Handlee", cursive;
 }
-#caja2 img {
-  padding: 0;
+#caja2 #ubicacion {
+  margin-top: 15px;
+}
+
+#caja3 h4 {
+  font-family: "Alumni Sans Pinstripe", sans-serif;
+  font-weight: bold;
+  font-size: 25px;
+  margin-top: 15px;
+}
+#caja3 p {
+  font-size: 20px;
 }
 
 body {
@@ -61,8 +76,8 @@ body {
   width: 90%;
   height: 90vh;
   background-image: url(../assets/img/corcho.jpg);
-  border: dashed 4px #86340A;
-  filter: drop-shadow(10px 10px 20px black) grayscale(10%);
+  border: dashed 4px #642709;
+  filter: drop-shadow(-10px 10px 15px black) grayscale(10%);
   border-radius: 2%;
   margin-left: 5%;
   margin-top: 3%;
