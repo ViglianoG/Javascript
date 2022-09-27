@@ -22,17 +22,18 @@
     <!-- ######################## MODAL #################### -->
     <div class="contenedor-modal">
         <div class="modal1 modal-cierre">
-            <div>
+            <form class="tarjeta">
                 <p class="cerrar">X</p>
                 <h2>Escribe tu nota</h2>
-                <textarea class="area-texto" id="input-texto-modal" type="text"></textarea>
+                <textarea id="input-texto-modal" class="texto-modal" placeholder="Texto de la nota"
+                    type="text"></textarea>
                 <img src="../assets/img/postit-modal.png" alt="postitmodal">
-                <button id="botonAgregarNota" type="button" class="btn btn-info">Añadir nota</button>
-            </div>
+                <button id="botonAgregarNota" type="submit" class="btn btn-info">Añadir nota</button>
+            </form>
         </div>
     </div>
 
-    <div id="grid-table2">
+    <div id="grid-table">
 
         <header>
             <!-- ######################## NAV #################### -->
@@ -54,36 +55,10 @@
                                 <a class="nav-link active" href="#">Notas</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link disabled" href="#">Galeria
-                                </a>
-                            </li>
-                            <li class="nav-item">
                                 <a class="nav-link" href="./toDo.html">To do list
                                 </a>
-                              </li>
-                            <li class="nav-item">
-                                <a class="nav-link disabled" href="./compras.html">Compras
-                                </a>
-                            </li>
-                            <!-- <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle disabled" href="#" role="button"
-                                    data-bs-toggle="dropdown" aria-expanded="false">
-                                    Tareas
-                                </a>
-                                <ul class="dropdown-menu" style="background-image: url(../assets/img/corcho-nav.jpg);">
-                                    <li><a class="dropdown-item text-light" href="#">To do list</a></li>
-                                    <li><a class="dropdown-item text-light" href="#">Tareas del mes</a></li>
-                                    <li><a class="dropdown-item text-light" href="#">Calendario de tareas</a></li>
-                                </ul>
-                            </li> -->
-                            <li class="nav-item">
-                                <a href="./tips.html" class="nav-link disabled">Tips/Curiosidades</a>
                             </li>
                         </ul>
-                        <form class="d-flex" role="search">
-                            <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
-                            <button class="btn btn-outline-light" type="submit">Buscar</button>
-                        </form>
                     </div>
                 </div>
             </nav>
@@ -93,30 +68,22 @@
 
         <main>
 
-            <!-- ######################## Galeria de Recuerdos #################### -->
+            <!-- ######################## Notas #################### -->
             <div class="container-fluid">
                 <div id="contenedorTarjetas1" class="row d-flex justify-content-center mt-1">
-
                 </div>
+
                 <!-- ######################## Agregar notas #################### -->
-                <div class="d-flex flex-row-reverse mt-1">
-                    <div class="col-sm-2 col-md-2 col-xl-2">
-                        <button id="botonAgregarNota-modal" type="button" class="btn btn-info">Añadir nota</button>
+                <div id="botonAgregarNota-modal">
+                    <a><img src="../assets/img/boton-agregar-nota.png" width="150px" height="150px"
+                            alt="icono-agregar-nota"></a>
+                    <div id="burbuja-nota">
+                        <p>Con este botón puedes agregar una nota!</p>
+                        <img src="../assets/img/burbuja.png" width="120px" height="120px" alt="burbuja-aviso">
                     </div>
                 </div>
 
-                <!-- ######################## Botones de páginas #################### -->
-                <div class="d-flex flex-row-reverse mt-1">
-                    <div class="col-sm-2 col-md-2 col-xl-2">
 
-                        <div class="btn-group me-2" role="group" aria-label="Second group">
-                            <button type="button" class="btn btn-secondary">1</button>
-                            <button type="button" class="btn btn-secondary">2</button>
-                            <button type="button" class="btn btn-secondary">3</button>
-                        </div>
-
-                    </div>
-                </div>
             </div>
         </main>
     </div>

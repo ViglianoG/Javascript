@@ -17,6 +17,13 @@
 </head>
 
 <body>
+  <!-- ######################## ANIMACION BIENVENIDA #################### -->
+  <div class="animacion-bienvenida">
+    <div class="bienvenida-fondo">
+      <h2 id="mensaje-bienvenida"></h2>
+    </div>
+  </div>
+
   <div id="grid-table">
     <header>
       <!-- ######################## NAV #################### -->
@@ -38,37 +45,12 @@
                 <a class="nav-link" href="./pages/notes.html">Notas</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link disabled" href="#">Galeria
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link disabled" href="./pages/compras.html">Compras
-                </a>
-              </li>
-              <li class="nav-item">
                 <a class="nav-link" href="./pages/toDo.html">To do list
                 </a>
-              </li>
-              <!-- <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle " href="#" role="button" data-bs-toggle="dropdown"
-                  aria-expanded="false">
-                  Tareas
-                </a>
-                <ul class="dropdown-menu" style="background-image: url(./assets/img/corcho-nav.jpg);">
-                  <li><a class="dropdown-item text-light" href="#">To do list</a></li>
-                  <li><a class="dropdown-item text-light" href="#">Tareas del mes</a></li>
-                  <li><a class="dropdown-item text-light" href="#">Calendario de tareas</a></li>
-                </ul>
-              </li> -->
-              <li class="nav-item">
-                <a href="./pages/tips.html" class="nav-link disabled">Tips/Curiosidades</a>
               </li>
             </ul>
             <form class="d-flex" role="search">
               <button id="botonNombre" type="button" class="btn btn-secondary disabled">Agregar Nombre</button>
-              <!-- <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
-              <button class="btn btn-outline-light" type="submit">Buscar</button> -->
-            </form>
             </form>
           </div>
         </div>
@@ -79,29 +61,44 @@
 
 
     <main>
+
+      <!-- ######################## CONTENEDOR MENSAJE BIENVENIDA / RELOJ #################### -->
       <section>
         <div id="contenedor-nombre">
         </div>
       </section>
+
+      <!-- ######################## SECCIÓN DEL TIEMPO #################### -->
       <section>
         <div id="contenedor">
           <div id="caja1">
             <h2 id="temp-valor"></h2>
             <h3 id="temp-descripcion"></h3>
-            <p id="humedad"></p>
           </div>
           <div id="caja2">
             <h2 id="ubicacion"></h2>
             <img id="icono-animado" src="" alt="" height="95" width="95">
           </div>
           <div id="caja3">
-            <h4>Velocidad del Viento</h4>
+            <h3>Velocidad del Viento</h3>
             <p id="vel-viento"></p>
+          </div>
+          <div id="caja4">
+            <span id="tiempo">00 : 00 : 00</span>
+            <p id="humedad"></p>
           </div>
         </div>
       </section>
 
+      <!-- ######################## SECCIÓN DOLAR #################### -->
+      <section>
+        <div id="caja-dolar">
+        </div>
+      </section>
+
     </main>
+
+
     <!-- ######################## SCRIPTS #################### -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous">

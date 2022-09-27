@@ -1,13 +1,13 @@
-// variables para fecha
+//################ VARIABLES PARA LA FECHA ################
 const fechaNumero = document.getElementById('fechaNumero');
 const nombreDia = document.getElementById('nombreDia');
 const fechaMes = document.getElementById('fechaMes');
 const fechaAnio = document.getElementById('fechaAnio');
 
-// contenedor de tareas
+//################ CONTENEDOR DE TAREAS ################
 const contenedorTareas = document.getElementById('contenedorTareas');
 
-// funcion para ordenar las fechas
+//################ FUNCION PARA CONSEGUIR LA FECHA ################
 const conseguirFecha = () => {
     const date = new Date();
     fechaNumero.textContent = date.toLocaleString('es', {
@@ -24,7 +24,7 @@ const conseguirFecha = () => {
     });
 };
 
-//funcion para agregar nuevas tareas
+//################ FUNCION PARA AGREGAR NUEVAS TAREAS ################
 const agregarNuevaTarea = event => {
     event.preventDefault();
     const {
@@ -49,7 +49,7 @@ const agregarNuevaTarea = event => {
     event.target.reset();
 };
 
-// cambiar estado a completado
+//################ CAMBIAR ESTADO DE LA TAREA A COMPLETADO ################
 const cambiarEstadoTarea = event => {
     event.target.classList.toggle('done');
     Toastify({
@@ -64,7 +64,7 @@ const cambiarEstadoTarea = event => {
     }).showToast();
 };
 
-// ordenar
+//################ ORDENAR LAS TAREAS POR COMPLETADAS Y POR COMPLETAR ################
 const done = [];
 const toDo = []; 
 const ordenar = () => {
@@ -73,7 +73,6 @@ const ordenar = () => {
     })
     return [...toDo, ...done];
 }
-
 const ordenarTareasCompletadas = () => {
     ordenar().forEach(el => contenedorTareas.appendChild(el))
     Toastify({
